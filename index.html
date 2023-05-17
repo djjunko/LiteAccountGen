@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discordaltgen.com</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <head>
+        <nav>
+            <ul>
+                <li><a href="#"> Home </a></li>
+                
+                
+                <li><a href="#"> Policy  </a></li>
+            
+                <li><a href="#"> <strong>Donate</strong> </a></li>
+            </ul>
+        </nav>
+        <br>
+       <!--- <hr> --->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+      <!--- <img class="logo" src="Untitled.png" alt="logo"> --->
+      <h1 class="logo">discordaltgen</h1>
+      <br>
+      
+        <h3>Welcome to discord alt gen, need a alt idea quick and fast? we got ya</h3>
+    </head>
+    <br>
+    <br>
+    <main>
+        <img id="random-image">
+        <br> 
+      
+        <p id="username"></p>
+        <br>
+	<button id="generate-button"><strong>Generate</strong></button>
+  
+    <script>
+      const imageUrls = [
+        "https://picsum.photos/200",
+        "https://picsum.photos/300",
+        "https://picsum.photos/400",
+        "https://picsum.photos/500",
+        "https://picsum.photos/600",
+      ];
+      
+      const adjectives = ["The", "Great", "Ovalon", "Power", "XX", "Queen", "Overall", "King", "Sleepy", 
+      "shy",
+"black",
+"blue",
+"gray",
+"green",
+"icy",
+"lemon",
+"mango",
+"orange",
+"purple",
+"red",
+"salmon",
+"white",
+"yellow",
+"alive",
+"better",
+"careful",
+"clever",
+"dead",
+"easy",
+"famous",
+"gifted",
+"hallowed",
+"helpful",
+"important",
+"inexpensive",
+"mealy",
+"mushy",
+"odd",
+"poor",
+"powerful",
+"rich",
+"shy",
+"tender",
+"unimportant",
+"uninterested",
+"vast",
+"wrong",
+"road",
+"chubby",
+"crooked",
+"curved",
+"deep",
+"flat",
+"high",
+"hollow",
+"low",
+"narrow",
+"refined",
+"round",
+"shallow",
+"skinny",
+"square",
+"steep",
+"straight",
+"wide",
+"big",
+"colossal",
+"fat",
+"gigantic",
+"great",
+"huge",
+"immense",
+"large",
+"little",
+"mammoth",
+"massive",
+"microscopic",
+"miniature",
+"petite",
+"puny",
+"scrawny",
+"short",
+"small",
+"tall",
+"teeny",
+"tiny",
+"78",
+"14",
+"92",
+"x41",
+"63x",
+"x29",
+"55x",
+"x87",
+"36x",
+"x20",
+"x45",
+"99x",
+"11x",
+"70",
+"x53",
+"x27",
+"84",
+"x47",
+"x68",
+"39x",
+    
+    
+    
+    
+    
+    ];
+      const nouns = ["Virturi", "Kakashine", "Sloth", "Zor", "Valish", "Creed", "Raccoon", "Fox",
+      "Mikaxxa",  "Romanticol",
+"Masterphil",
+"Senpai",
+"NateDoom",
+"вам повістка",
+"SisEatsyou",
+"Hapivirus",
+"Doomni",
+"HugzLegend",
+"Logicom",
+"MaxiMew",
+"MajereDoodle",
+"Mikaxxa",
+"Loliiruna",
+"Alachno",
+"Nouman",
+"Jembevy",
+"Karasvanoxteam",
+"Pridecipa",
+"Namiko",
+"TagzSmg",
+"Agentum",
+"Rustyrd",
+"Liebern",
+"Brelangi",
+"Auraltype",
+"Cripxyarmin",
+"Linkle",          
+"shaquille.oatmeal",
+"hanging_with_my_gnomies",
+"hoosier-daddy",
+"fast_and_the_curious",
+"averagestudent",
+"BadKarma",
+"google_was_my_idea",
+"cute.as.ducks",
+"casanova",
+"anonymouse",
+"Definitely_not_an_athlete",
+"HeartTicker",
+"YESIMFUNNY",
+"BenAfleckIsAnOkActor",
+"magicschoolbusdropout",
+"Everybody",
+"regina_phalange",
+"PawneeGoddess",
+"pluralizes_everythings",
+"chickenriceandbeans",
+"test_name_please_ignore",
+"IYELLALOT",
+"heyyou",
+"laugh_till_u_pee",
+"aDistraction",
+"crazy_cat_lady",
+"banana_hammock",
+"thegodfatherpart4",
+"unfriendme",
+"babydoodles",
+"fluffycookie",
+"buh-buh-bacon",
+"ashley_said_what",
+"LactoseTheIntolerant",
+"ManEatsPants",
+"Twentyfourhourpharmacy",
+"applebottomjeans",
+"Babushka",
+"toastedbagelwithcreamcheese",
+"baeconandeggz",
+"FartinLutherKing",
+"coolshirtbra",
+"kentuckycriedfricken",
+"REVERANDTOAST",
+"kim_chi",
+"idrinkchocolatemilk",
+"SaintBroseph",
+"chin_chillin",
+"ghostfacegangsta",
+"bigfootisreal",
+"santas_number1_elf",
+"thehornoftheunicorn",
+"iNeed2p",
+"abductedbyaliens",
+"actuallynotchrishemsworth",
+"nachocheesefries",
+"personallyvictimizedbyreginageorge",
+"just-a-harmless-potato",
+"FrostedCupcake",
+"Avocadorable",
+"fatBatman",
+"quailandduckeggs",
+"PaniniHead",
+"mandymooressingingvoice",
+"catsordogs",
+"FartnRoses",
+"RedMonkeyButt",
+"FreddyMercurysCat",
+"MasterCheif",
+"FreeHugz",
+"ima.robot",
+"actuallythedog",
+"notthetigerking",
+"pixie_dust",
+"ChopSuey",
+"turkey_sandwich",
+"B.Juice",
+"Chris_P_Bacon",
+"LtDansLegs",
+"WookiesrPpl2",
+"hogwartsfailure",
+"CourtesyFlush",
+"MomsSpaghetti",
+"spongebobspineapple",
+"garythesnail",
+"nothisispatrick",
+"CountSwagula",
+"SweetP",
+"PNUT",
+"Snax",
+"Nuggetz",
+"colonel_mustards_rope",
+"baby_bugga_boo",
+"joancrawfordfanclub",
+"fartoolong",
+"loliateyourcat",
+"rawr_means_iloveyou",
+"ihavethingstodo.jpg",
+"heresWonderwall",
+"UFO_believer",
+"ihazquestion",
+"SuperMagnificentExtreme",
+"It’s_A Political Statement",
+"TheAverageForumUser",
+"just_a_teen",
+"OmnipotentBeing",
+"GawdOfROFLS",
+"loveandpoprockz",
+"2_lft_feet",
+"Bread Pit",
+
+
+
+
+
+
+
+    ];
+
+
+
+
+
+
+
+      const randomImageUrl = () => {
+        return imageUrls[Math.floor(Math.random() * imageUrls.length)];
+      };
+      
+      const generateButton = document.getElementById("generate-button");
+      const randomImage = document.getElementById("random-image");
+      const usernameElement = document.getElementById("username");
+      
+      generateButton.addEventListener("click", () => {
+        const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+        const noun = nouns[Math.floor(Math.random() * nouns.length)];
+        const username = adjective + noun;
+        randomImage.src = randomImageUrl();
+        usernameElement.innerText = " " + username;
+      });
+    </script>
+	
+  </body>
+</html>
+
+
+    
+    </main>
+
+    <aside>
+
+    </aside>
+    
+    <footer>
+        <hr>
+        <br>
+    
+        &copy; 2023  Created by github.com/djjunko
+
+
+    </footer>
+    <style>
+      * { 
+        text-align: center; 
+       
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      body, head,  main { 
+        color:#2eda9c
+      }
+      
+      
+      nav ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       text-align: center;
+       box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px;
+      
+       padding-top: 15px;
+       padding-bottom: 15px; 
+      }
+      
+      nav li {
+       display:inline;
+      }
+      
+      nav li a {
+       padding:5px 10px;
+       display: inline-block;
+       text-decoration: none; 
+       color: #2eda9c;
+       font-weight: bold; 
+       
+      }
+      
+      a:hover { 
+         color: white;
+         background-color:mediumslateblue; 
+      }
+      
+      footer  {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color:darkslateblue;
+      text-align: center;
+      padding-top: 20px;
+        padding-bottom: 30px;
+      }
+      
+      
+        #random-image {
+          width: 100px;
+          height: 100px;
+                text-align: center; 
+        }
+      
+      
+            #generate-button {
+      background-color: #e7e7e7; 
+      border: none;
+      color: #2eda9c;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 10px; 
+      }
+      
+      .logo { color:mediumslateblue; 
+      
+      }
+      
+      #username { 
+        color:darkslateblue; 
+        font-weight:bolder; 
+      }
+      </style>
+
+    
+</body>
+</html>
+
